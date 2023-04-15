@@ -1,9 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Pet from "./Pet";
+import PetList from "./PetList";
 
-const ANIMALS = ["dog", "cat", "bird"];
-// const BREEDS = [];
+const ANIMALS = ["cat", "dog", "bird", "rabbit", "reptile"];
 
 export default function Search() {
   const [animal, setAnimal] = useState("");
@@ -14,6 +13,7 @@ export default function Search() {
   useEffect(() => {
     fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&breed=${breed}`)
       .then((res) => res.json())
+      // .then((res) => console.log(res.pets))
       .then((res) => setPets(res.pets))
       .catch((error) => console.log(error));
   }, []);
@@ -27,9 +27,21 @@ export default function Search() {
         .catch((error) => console.log(error));
   }, [animal]);
 
+  const handleSubmit = () => {
+    fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&breed=${breed}`)
+      .then((res) => res.json())
+      .then((res) => setPets(res.pets))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      >
         <label htmlFor="animal">
           Animal
           <select
@@ -64,14 +76,7 @@ export default function Search() {
         </label>
         <button>Submit</button>
       </form>
-      {pets.map((pet) => (
-        <Pet
-          name={pet.name}
-          animal={pet.animal}
-          breed={pet.breed}
-          key={pet.id}
-        />
-      ))}
+      <PetList pets={pets} />
     </div>
   );
 }
