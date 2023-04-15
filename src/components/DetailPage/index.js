@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 export default function Detail() {
   const [pet, setPet] = useState([]);
-  // const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(0);
 
   let params = useParams();
   // console.log(params.pet_id);
@@ -18,23 +18,24 @@ export default function Detail() {
   const { name, animal, breed, city, state, description, images } = pet;
   // console.log(images);
 
-  // const handleClick = (e) => {
-  //   // setSelected(e.target)
-  //   console.log(e);
-  // };
+  const handleClick = (e) => {
+    setSelected(+e.target.dataset.index);
+    // console.log(e.target.dataset.index);
+  };
 
   return (
     <div>
       <div>
-        {/* <img src={images[0]} alt={name} /> */}
+        {images && <img src={images[selected]} alt={name} />}
         <div>
           {images &&
-            images.map((image) => (
+            images.map((image, index) => (
               <img
                 key={image}
                 src={image}
                 alt="smallphoto"
-                // onClick={() => handleClick}
+                data-index={index}
+                onClick={handleClick}
               />
             ))}
         </div>
