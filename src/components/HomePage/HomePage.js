@@ -4,7 +4,7 @@ import PetList from "./PetList";
 
 const ANIMALS = ["cat", "dog", "bird", "rabbit", "reptile"];
 
-export default function Search() {
+export default function HomePage() {
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState([]);
   const [pets, setPets] = useState([]);
@@ -47,15 +47,21 @@ export default function Search() {
           <select
             id="animal"
             value={animal}
-            onChange={(e) => setAnimal(e.target.value)}
-            onBlur={(e) => setAnimal(e.target.value)}
+            onChange={(e) => {
+              setAnimal(e.target.value);
+            }}
+            onBlur={(e) => {
+              setAnimal(e.target.value);
+            }}
           >
             <option />
-            {ANIMALS.map((animal) => (
-              <option value={animal} key={animal}>
-                {animal}
-              </option>
-            ))}
+            {ANIMALS.map((animal) => {
+              return (
+                <option value={animal} key={animal}>
+                  {animal}
+                </option>
+              );
+            })}
           </select>
         </label>
         <label htmlFor="breed">
