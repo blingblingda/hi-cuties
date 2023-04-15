@@ -1,5 +1,4 @@
 import React from "react";
-import Detail from "../DetailPage";
 
 export default function Pet(props) {
   const { animal, breed, images, name } = props;

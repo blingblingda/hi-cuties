@@ -1,6 +1,6 @@
 import React from "react";
 // import Search from "../HomePage/Search";
-import Detail from "../DetailPage";
+import Detail from "../DetailPage/Detail";
 
 export default function App() {
   return (

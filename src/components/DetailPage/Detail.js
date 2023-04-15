@@ -1,4 +1,5 @@
 import React from "react";
+import Carousel from "./Carousel";
 
 const MOCKDATA = {
   id: 1,
@@ -19,11 +20,7 @@ const MOCKDATA = {
 export default function Detail(props) {
   return (
     <div>
-      <div>{<img src={MOCKDATA.images[0]} alt={MOCKDATA.name} />}</div>
-      <div>
-        <img src={MOCKDATA.images[1]} alt={MOCKDATA.name} />
-        <img src={MOCKDATA.images[2]} alt={MOCKDATA.name} />
-      </div>
+      <Carousel mock={MOCKDATA} />
       <div>
         <h1>{MOCKDATA.name}</h1>
         <h2>
