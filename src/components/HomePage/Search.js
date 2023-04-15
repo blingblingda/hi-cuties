@@ -2,13 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Pet from "./Pet";
 
-const Animals = ["dog", "cat", "bird"];
-const Breeds = [];
+const ANIMALS = ["dog", "cat", "bird"];
+// const BREEDS = [];
 
 export default function Search() {
   const [animal, setAnimal] = useState("");
-  const [breed, setBreed] = useState("");
+  const [breed, setBreed] = useState([]);
   const [pets, setPets] = useState([]);
+  const [breedOptions, setBreedOptions] = useState([]);
 
   useEffect(() => {
     fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&breed=${breed}`)
@@ -17,7 +18,14 @@ export default function Search() {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(pets);
+  useEffect(() => {
+    animal &&
+      fetch(`https://pets-v2.dev-apis.com/breeds?animal=${animal}`)
+        .then((res) => res.json())
+        // .then((res) => console.log(res.breeds))
+        .then((res) => setBreedOptions(res.breeds))
+        .catch((error) => console.log(error));
+  }, [animal]);
 
   return (
     <div>
@@ -31,7 +39,7 @@ export default function Search() {
             onBlur={(e) => setAnimal(e.target.value)}
           >
             <option />
-            {Animals.map((animal) => (
+            {ANIMALS.map((animal) => (
               <option value={animal} key={animal}>
                 {animal}
               </option>
@@ -47,7 +55,7 @@ export default function Search() {
             onBlur={(e) => setBreed(e.target.value)}
           >
             <option />
-            {Breeds.map((breed) => (
+            {breedOptions.map((breed) => (
               <option value={breed} key={breed}>
                 {breed}
               </option>
