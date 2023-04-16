@@ -1,26 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FavoritesContext } from "../App";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 export default function FavoritesPage() {
   return (
-    <FavoritesContext.Consumer>
-      {(value) =>
-        value.favorites.map((fav) => {
-          return (
-            <>
-              <Link to={`/detail/${fav.id}`}>
-                <img src={fav.images[0]} alt={fav.name} />
-              </Link>
-              <div>
-                <h2>{fav.name}</h2>
-                <h3>{fav.breed}</h3>
-                <h3>{fav.animal}</h3>
-              </div>
-            </>
-          );
-        })
-      }
-    </FavoritesContext.Consumer>
+    <Container>
+      <FavoritesContext.Consumer>
+        {(value) =>
+          value.favorites.map((fav) => {
+            return (
+              <Card className="text-center" style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={fav.images[0]} alt={fav.name} />
+                <Card.Body>
+                  <Card.Title>{fav.name}</Card.Title>
+                  <Card.Text>
+                    {fav.breed} <br /> {fav.animal}
+                  </Card.Text>
+                  <Link to={`/detail/${fav.id}`}>
+                    <Button variant="success">Detail</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
+            );
+          })
+        }
+      </FavoritesContext.Consumer>
+    </Container>
   );
 }
