@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Pet(props) {
-  const [isFave, setIsFave] = useState(false);
   const {
     animal,
     breed,
@@ -11,7 +10,9 @@ export default function Pet(props) {
     id,
     handleAddAnimal,
     handleRemoveAnimal,
+    isFaveBefore,
   } = props;
+  const [isFave, setIsFave] = useState(isFaveBefore);
 
   let photo = images[0];
 

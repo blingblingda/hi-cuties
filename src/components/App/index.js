@@ -4,17 +4,25 @@ import HomePage from "../HomePage/HomePage";
 import Detail from "../DetailPage";
 import FavoritesPage from "../FavoritesPage";
 
+export const FavoritesContext = React.createContext({
+  favorites: [],
+  setFavorites: () => {},
+});
+
 export default function App() {
+  const [favorites, setFavorites] = React.useState([]);
   return (
-    <BrowserRouter>
-      <header>
-        <Link to="/">Hi Cuties!</Link>
-      </header>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/detail/:pet_id" element={<Detail />} />
-        <Route path="/favorite" element={<FavoritesPage />} />
-      </Routes>
-    </BrowserRouter>
+    <FavoritesContext.Provider value={{ favorites, setFavorites }}>
+      <BrowserRouter>
+        <header>
+          <Link to="/">Hi Cuties!</Link>
+        </header>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/detail/:pet_id" element={<Detail />} />
+          <Route path="/favorite" element={<FavoritesPage />} />
+        </Routes>
+      </BrowserRouter>
+    </FavoritesContext.Provider>
   );
 }

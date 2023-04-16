@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import Pet from "./Pet";
 
 export default function PetList(props) {
-  const [faveAnimals, setFaveAnimals] = useState([]);
-  const { pets } = props;
-  // console.log(pets);
+  const { pets, favorites, setFavorites } = props;
+
+  // console.log(favorites);
 
   const handleAddAnimal = (animal) => {
-    if (!faveAnimals.map((element) => element.id).includes(animal.id)) {
+    if (!favorites.map((element) => element.id).includes(animal.id)) {
       pets
         .filter((element) => element.id === animal.id)
-        .map((element) => setFaveAnimals([...faveAnimals, element]));
+        .map((element) => setFavorites([...favorites, element]));
     }
   };
 
   const handleRemoveAnimal = (animal) => {
-    if (faveAnimals.map((element) => element.id).includes(animal.id)) {
-      const newFaveAnimals = faveAnimals.filter(
+    if (favorites.map((element) => element.id).includes(animal.id)) {
+      const newFaveAnimals = favorites.filter(
         (element) => element.id !== animal.id
       );
-      setFaveAnimals(newFaveAnimals);
+      setFavorites(newFaveAnimals);
     }
   };
 
@@ -35,6 +35,9 @@ export default function PetList(props) {
           breed={pet.breed}
           animal={pet.animal}
           images={pet.images}
+          isFaveBefore={favorites
+            .map((favorite) => favorite.id)
+            .includes(pet.id)}
           handleAddAnimal={handleAddAnimal}
           handleRemoveAnimal={handleRemoveAnimal}
         />

@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FavoritesContext } from "../App";
 import PetList from "./PetList";
 
 const ANIMALS = ["cat", "dog", "bird", "rabbit", "reptile"];
@@ -82,7 +84,16 @@ export default function HomePage() {
         </label>
         <button>Submit</button>
       </form>
-      <PetList pets={pets} />
+      <Link to={"/favorite"}>Favorites</Link>
+      <FavoritesContext.Consumer>
+        {(value) => (
+          <PetList
+            pets={pets}
+            favorites={value.favorites}
+            setFavorites={value.setFavorites}
+          />
+        )}
+      </FavoritesContext.Consumer>
     </div>
   );
 }
