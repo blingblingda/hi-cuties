@@ -28,23 +28,27 @@ export default function PetList(props) {
 
   return (
     <Row className="px-4 my-5">
-      {pets.map((pet) => (
-        <Col>
-          <Pet
-            key={pet.id}
-            id={pet.id}
-            name={pet.name}
-            breed={pet.breed}
-            animal={pet.animal}
-            images={pet.images}
-            isFaveBefore={favorites
-              .map((favorite) => favorite.id)
-              .includes(pet.id)}
-            handleAddAnimal={handleAddAnimal}
-            handleRemoveAnimal={handleRemoveAnimal}
-          />
-        </Col>
-      ))}
+      {!pets.length ? (
+        <h1 className="text-success">No Pets Found</h1>
+      ) : (
+        pets.map((pet) => (
+          <Col>
+            <Pet
+              key={pet.id}
+              id={pet.id}
+              name={pet.name}
+              breed={pet.breed}
+              animal={pet.animal}
+              images={pet.images}
+              isFaveBefore={favorites
+                .map((favorite) => favorite.id)
+                .includes(pet.id)}
+              handleAddAnimal={handleAddAnimal}
+              handleRemoveAnimal={handleRemoveAnimal}
+            />
+          </Col>
+        ))
+      )}
     </Row>
   );
 }

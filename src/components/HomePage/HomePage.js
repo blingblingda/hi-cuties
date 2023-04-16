@@ -61,63 +61,75 @@ export default function HomePage() {
           </Col>
         </Row>
         <Row>
-          <Col sm={8}>
+          <Col sm={4}>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit();
               }}
             >
-              <label htmlFor="animal">
-                Animal
-                <select
-                  id="animal"
-                  value={animal}
-                  onChange={(e) => {
-                    setAnimal(e.target.value);
-                  }}
-                  onBlur={(e) => {
-                    setAnimal(e.target.value);
-                  }}
-                  className="form-select"
-                  aria-label="Animal select"
-                >
-                  <option selected />
-                  {ANIMALS.map((animal) => {
-                    return (
-                      <option value={animal} key={animal}>
-                        {animal}
-                      </option>
-                    );
-                  })}
-                </select>
-              </label>
-              {""}
-              <label htmlFor="breed">
-                Breed
-                <select
-                  id="breed"
-                  value={breed}
-                  onChange={(e) => setBreed(e.target.value)}
-                  onBlur={(e) => setBreed(e.target.value)}
-                  className="form-select w-auto"
-                  aria-label="Breed select"
-                >
-                  <option selected />
-                  {breedOptions.map((breed) => (
-                    <option value={breed} key={breed}>
-                      {breed}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              {""}
-              <button type="submit" className="btn btn-outline-success">
-                Submit
-              </button>
+              <Container>
+                <Row>
+                  <Col>
+                    <label htmlFor="animal">
+                      Animal
+                      <select
+                        id="animal"
+                        value={animal}
+                        onChange={(e) => {
+                          setAnimal(e.target.value);
+                        }}
+                        onBlur={(e) => {
+                          setAnimal(e.target.value);
+                        }}
+                        className="form-select"
+                        aria-label="Animal select"
+                        style={{ width: 100 }}
+                      >
+                        <option selected />
+                        {ANIMALS.map((animal) => {
+                          return (
+                            <option value={animal} key={animal}>
+                              {animal}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </label>
+                  </Col>
+                  <Col>
+                    <label htmlFor="breed">
+                      Breed
+                      <select
+                        id="breed"
+                        value={breed}
+                        onChange={(e) => setBreed(e.target.value)}
+                        onBlur={(e) => setBreed(e.target.value)}
+                        className="form-select"
+                        aria-label="Breed select"
+                        style={{ width: 150 }}
+                      >
+                        <option selected />
+                        {breedOptions.map((breed) => (
+                          <option value={breed} key={breed}>
+                            {breed}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  </Col>
+                  <Col className="mt-4">
+                    <label>
+                      <button type="submit" className="btn btn-outline-success">
+                        Submit
+                      </button>
+                    </label>
+                  </Col>
+                </Row>
+              </Container>
             </form>
           </Col>
-          <Col sm={4}>
+          <Col className="mt-4" sm={8} style={{ textAlign: "right" }}>
             <LinkContainer to="/favorite">
               <Button variant="success">Your Saved Pets</Button>
             </LinkContainer>
