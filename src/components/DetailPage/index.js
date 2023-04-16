@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 export default function Detail() {
   const [pet, setPet] = useState([]);
@@ -24,29 +26,43 @@ export default function Detail() {
   };
 
   return (
-    <div>
-      <div>
-        {images && <img src={images[selected]} alt={name} />}
-        <div>
-          {images &&
-            images.map((image, index) => (
-              <img
+    <Container>
+      <Row class="mx-auto" style={{ width: "500px" }}>
+        {images && <Image src={images[selected]} alt={name} roundedCircle />}
+      </Row>
+      <Row>
+        {images &&
+          images.map((image, index) => (
+            <Col>
+              <Image
+                className="img-thumbnail"
                 key={image}
                 src={image}
                 alt="smallphoto"
                 data-number={index}
                 onClick={handleClick}
               />
-            ))}
-        </div>
-      </div>
-      <div>
-        <h1>{name}</h1>
-        <h2>
-          {animal} - {breed} - {city},{state}
-        </h2>
-        <p>{description}</p>
-      </div>
-    </div>
+            </Col>
+          ))}
+      </Row>
+      <Row>
+        <Card className="text-center">
+          <Card.Body>
+            <Card.Title>
+              <h1>{name}</h1>
+            </Card.Title>
+            <Card.Text>
+              <h2>
+                {animal} - {breed} - {city},{state}
+              </h2>
+              <p>{description}</p>
+            </Card.Text>
+            <LinkContainer to="/">
+              <Button variant="success">Go Back Home</Button>
+            </LinkContainer>
+          </Card.Body>
+        </Card>
+      </Row>
+    </Container>
   );
 }

@@ -20,7 +20,10 @@ export default function App() {
         <Navbar bg="light" variant="light">
           <Container>
             <Navbar.Brand href="/">
-              <i className="bi bi-flower1"></i> Hi Cuties!
+              <i className="bi bi-flower1 display-6"></i>{" "}
+              <h1 className="display-6" style={{ display: "inline-block" }}>
+                Hi Cuties!
+              </h1>
             </Navbar.Brand>
           </Container>
         </Navbar>
