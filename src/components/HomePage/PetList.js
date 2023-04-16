@@ -4,7 +4,7 @@ import Pet from "./Pet";
 export default function PetList(props) {
   const [faveAnimals, setFaveAnimals] = useState([]);
   const { pets } = props;
-  console.log(pets);
+  // console.log(pets);
 
   const handleAddAnimal = (animal) => {
     if (!faveAnimals.map((element) => element.id).includes(animal.id)) {
@@ -23,7 +23,7 @@ export default function PetList(props) {
     }
   };
 
-  console.log(faveAnimals);
+  // console.log(faveAnimals);
 
   return (
     <div>
