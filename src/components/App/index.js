@@ -19,7 +19,7 @@ export default function App() {
       <BrowserRouter>
         <Navbar bg="light" variant="light">
           <Container>
-            <Navbar.Brand href="/">
+            <Navbar.Brand>
               <i className="bi bi-flower1 display-6"></i>{" "}
               <h1 className="display-6" style={{ display: "inline-block" }}>
                 Hi Cuties!

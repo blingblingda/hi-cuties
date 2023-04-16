@@ -20,7 +20,12 @@ export default function Pet(props) {
 
   return (
     <Card className="text-center" style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={photo} alt={name} />
+      <Card.Img
+        variant="top"
+        src={photo}
+        alt={name}
+        style={{ width: "18rem", height: "19rem" }}
+      />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>

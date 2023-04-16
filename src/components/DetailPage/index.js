@@ -27,10 +27,10 @@ export default function Detail() {
 
   return (
     <Container>
-      <Row class="mx-auto" style={{ width: "500px" }}>
+      <Row className="mx-auto my-5" style={{ width: "500px" }}>
         {images && <Image src={images[selected]} alt={name} roundedCircle />}
       </Row>
-      <Row>
+      <Row className="my-5">
         {images &&
           images.map((image, index) => (
             <Col>
@@ -41,11 +41,12 @@ export default function Detail() {
                 alt="smallphoto"
                 data-number={index}
                 onClick={handleClick}
+                style={{ width: "250px" }}
               />
             </Col>
           ))}
       </Row>
-      <Row>
+      <Row className="my-5">
         <Card className="text-center">
           <Card.Body>
             <Card.Title>
