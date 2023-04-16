@@ -19,7 +19,7 @@ export default function Detail() {
   // console.log(images);
 
   const handleClick = (e) => {
-    setSelected(+e.target.dataset.index);
+    setSelected(+e.target.dataset.number);
     // console.log(e.target.dataset.index);
   };
 
@@ -34,7 +34,7 @@ export default function Detail() {
                 key={image}
                 src={image}
                 alt="smallphoto"
-                data-index={index}
+                data-number={index}
                 onClick={handleClick}
               />
             ))}
