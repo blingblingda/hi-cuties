@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 export default function Pet(props) {
   const {
@@ -17,38 +19,48 @@ export default function Pet(props) {
   let photo = images[0];
 
   return (
-    <>
-      <Link to={`/detail/${id}`}>
-        <img src={photo} alt={name} />
-      </Link>
-      <div>
-        <h2>{name}</h2>
-        <h3>{breed}</h3>
-        <h3>{animal}</h3>
-      </div>
-      <div>
-        {isFave ? (
-          <button
-            className="action"
-            onClick={() => {
-              handleRemoveAnimal(props);
-              setIsFave(false);
-            }}
-          >
-            <span className="material-icons">remove_from_queue</span>
-          </button>
-        ) : (
-          <button
-            className="action"
-            onClick={() => {
-              handleAddAnimal(props);
-              setIsFave(true);
-            }}
-          >
-            <span className="material-icons">add_to_queue</span>
-          </button>
-        )}
-      </div>
-    </>
+    <Card className="text-center" style={{ width: "18rem" }}>
+      <Card.Img variant="top" src={photo} alt={name} />
+      <Card.Body>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>
+          {breed} <br /> {animal}
+        </Card.Text>
+
+        {/* <Button variant="primary">Go somewhere</Button> */}
+        <Container>
+          <Row>
+            <Col md={4}>
+              {isFave ? (
+                <Button
+                  variant="outline-danger"
+                  onClick={() => {
+                    handleRemoveAnimal(props);
+                    setIsFave(false);
+                  }}
+                >
+                  <i class="bi bi-star-fill"></i>
+                </Button>
+              ) : (
+                <Button
+                  variant="outline-danger"
+                  onClick={() => {
+                    handleAddAnimal(props);
+                    setIsFave(true);
+                  }}
+                >
+                  <i class="bi bi-star"></i>
+                </Button>
+              )}
+            </Col>
+            <Col md={{ span: 4, offset: 4 }}>
+              <LinkContainer to={`/detail/${id}`}>
+                <Button variant="success">Details</Button>
+              </LinkContainer>
+            </Col>
+          </Row>
+        </Container>
+      </Card.Body>
+    </Card>
   );
 }

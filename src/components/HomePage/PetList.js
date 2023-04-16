@@ -1,5 +1,6 @@
 import React from "react";
 import Pet from "./Pet";
+import { Row, Col } from "react-bootstrap";
 
 export default function PetList(props) {
   const { pets, favorites, setFavorites } = props;
@@ -26,22 +27,24 @@ export default function PetList(props) {
   // console.log(faveAnimals);
 
   return (
-    <div>
+    <Row className="px-4 my-5">
       {pets.map((pet) => (
-        <Pet
-          key={pet.id}
-          id={pet.id}
-          name={pet.name}
-          breed={pet.breed}
-          animal={pet.animal}
-          images={pet.images}
-          isFaveBefore={favorites
-            .map((favorite) => favorite.id)
-            .includes(pet.id)}
-          handleAddAnimal={handleAddAnimal}
-          handleRemoveAnimal={handleRemoveAnimal}
-        />
+        <Col>
+          <Pet
+            key={pet.id}
+            id={pet.id}
+            name={pet.name}
+            breed={pet.breed}
+            animal={pet.animal}
+            images={pet.images}
+            isFaveBefore={favorites
+              .map((favorite) => favorite.id)
+              .includes(pet.id)}
+            handleAddAnimal={handleAddAnimal}
+            handleRemoveAnimal={handleRemoveAnimal}
+          />
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 }
