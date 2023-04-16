@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-// import { NavLink } from "react-router-dom";
 import { FavoritesContext } from "../App";
 import PetList from "./PetList";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -42,7 +41,7 @@ export default function HomePage() {
   return (
     <>
       <Container>
-        <Row className="px-4 my-5">
+        <Row className="px-4 my-5 font-monospace fw-bold text-success">
           <Col sm={8}>
             {" "}
             <p className="fs-4">
@@ -62,7 +61,7 @@ export default function HomePage() {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} md={8}>
+          <Col sm={8}>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -113,13 +112,12 @@ export default function HomePage() {
                 </select>
               </label>
               {""}
-              <button type="submit" className="btn btn-outline-warning">
+              <button type="submit" className="btn btn-outline-success">
                 Submit
               </button>
             </form>
           </Col>
-          <Col xs={6} md={4}>
-            {/* <NavLink to={"/favorite"}>Favorites</NavLink> */}
+          <Col sm={4}>
             <LinkContainer to="/favorite">
               <Button variant="success">Your Saved Pets</Button>
             </LinkContainer>
