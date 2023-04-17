@@ -5,8 +5,6 @@ import { Row, Col } from "react-bootstrap";
 export default function PetList(props) {
   const { pets, favorites, setFavorites } = props;
 
-  // console.log(favorites);
-
   const handleAddAnimal = (animal) => {
     if (!favorites.map((element) => element.id).includes(animal.id)) {
       pets
@@ -23,8 +21,6 @@ export default function PetList(props) {
       setFavorites(newFaveAnimals);
     }
   };
-
-  // console.log(faveAnimals);
 
   return (
     <Row className="px-4 my-5">

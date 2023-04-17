@@ -17,18 +17,20 @@ export default function HomePage() {
   useEffect(() => {
     fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&breed=${breed}`)
       .then((res) => res.json())
-      // .then((res) => console.log(res.pets))
       .then((res) => setPets(res.pets))
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
-    animal &&
+    if (animal) {
       fetch(`https://pets-v2.dev-apis.com/breeds?animal=${animal}`)
         .then((res) => res.json())
-        // .then((res) => console.log(res.breeds))
         .then((res) => setBreedOptions(res.breeds))
         .catch((error) => console.log(error));
+    } else {
+      setBreed("");
+      setBreedOptions([]);
+    }
   }, [animal]);
 
   const handleSubmit = () => {
@@ -79,14 +81,11 @@ export default function HomePage() {
                         onChange={(e) => {
                           setAnimal(e.target.value);
                         }}
-                        onBlur={(e) => {
-                          setAnimal(e.target.value);
-                        }}
                         className="form-select"
                         aria-label="Animal select"
                         style={{ width: 100 }}
                       >
-                        <option selected />
+                        <option defaultValue />
                         {ANIMALS.map((animal) => {
                           return (
                             <option value={animal} key={animal}>
@@ -104,12 +103,11 @@ export default function HomePage() {
                         id="breed"
                         value={breed}
                         onChange={(e) => setBreed(e.target.value)}
-                        onBlur={(e) => setBreed(e.target.value)}
                         className="form-select"
                         aria-label="Breed select"
                         style={{ width: 150 }}
                       >
-                        <option selected />
+                        <option defaultValue />
                         {breedOptions.map((breed) => (
                           <option value={breed} key={breed}>
                             {breed}

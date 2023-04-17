@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { NavLink } from "react-router-dom";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
@@ -31,8 +30,6 @@ export default function Pet(props) {
         <Card.Text>
           {breed} <br /> {animal}
         </Card.Text>
-
-        {/* <Button variant="primary">Go somewhere</Button> */}
         <Container>
           <Row>
             <Col md={4}>
@@ -44,7 +41,7 @@ export default function Pet(props) {
                     setIsFave(false);
                   }}
                 >
-                  <i class="bi bi-star-fill"></i>
+                  <i className="bi bi-star-fill"></i>
                 </Button>
               ) : (
                 <Button
@@ -54,7 +51,7 @@ export default function Pet(props) {
                     setIsFave(true);
                   }}
                 >
-                  <i class="bi bi-star"></i>
+                  <i className="bi bi-star"></i>
                 </Button>
               )}
             </Col>

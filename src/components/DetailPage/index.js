@@ -8,7 +8,6 @@ export default function Detail() {
   const [selected, setSelected] = useState(0);
 
   let params = useParams();
-  // console.log(params.pet_id);
 
   useEffect(() => {
     fetch(`https://pets-v2.dev-apis.com/pets?id=${params.pet_id}`)
@@ -18,11 +17,9 @@ export default function Detail() {
   }, []);
 
   const { name, animal, breed, city, state, description, images } = pet;
-  // console.log(images);
 
   const handleClick = (e) => {
     setSelected(+e.target.dataset.number);
-    // console.log(e.target.dataset.index);
   };
 
   return (
@@ -38,7 +35,7 @@ export default function Detail() {
                 className="img-thumbnail"
                 key={image}
                 src={image}
-                alt="smallphoto"
+                alt="smallPhoto"
                 data-number={index}
                 onClick={handleClick}
                 style={{ width: "250px" }}
