@@ -14,6 +14,7 @@ export default function Detail() {
       .then((res) => res.json())
       .then((res) => setPet(res.pets[0]))
       .catch((error) => console.log(error));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { name, animal, breed, city, state, description, images } = pet;

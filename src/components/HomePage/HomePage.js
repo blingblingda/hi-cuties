@@ -19,6 +19,7 @@ export default function HomePage() {
       .then((res) => res.json())
       .then((res) => setPets(res.pets))
       .catch((error) => console.log(error));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
