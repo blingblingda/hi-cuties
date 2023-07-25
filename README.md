@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Pet Photo Showcase Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Pet Photo Showcase Website](#pet-photo-showcase-website)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Online demo](#online-demo)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+  - [Technologies Used](#technologies-used)
+  - [Contributing](#contributing)
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+This project is a pet photo showcase website built with React. The website aims to provide users with a delightful experience as they explore the wonderful world of pets through captivating photos and essential information about each pet. Whether you are an animal lover or looking for your next furry companion, our website is the perfect place to find adorable pet pictures.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Online demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://blingblingda.github.io/hi-cuties
 
-### `npm test`
+![screenshot](./docs/ScreenShot-1.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![screenshot](./docs/ScreenShot-2.png)
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Browse through a collection of high-quality and adorable pet photos.
+- View basic information about each pet, including their name, breed, and a short description of their personality.
+- Intuitive and user-friendly interface, making it easy to navigate and explore the website.
+- Responsive design, ensuring a seamless experience on various devices, including desktops, tablets, and smartphones.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run the project locally on your machine, follow these steps:
 
-### `npm run eject`
+1. **Clone the repository:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+git clone https://github.com/blingblingda/hi-cuties.git
+cd hi-cuties
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Start the development server:**
 
-## Learn More
+```
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Open the application:** Visit `http://localhost:3000` in your web browser to see the website in action.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies Used
 
-### Code Splitting
+The following technologies and tools were used to develop this project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React: A JavaScript library for building user interfaces.
+- HTML5: The markup language used for structuring the website.
+- CSS3: The style sheet language used for designing the website's layout and appearance.
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+I welcome contributions to improve the pet photo showcase website. If you want to contribute, please follow these steps:
 
-### Making a Progressive Web App
+1. Fork the repository to your own GitHub account.
+2. Create a new branch from the main branch: `git checkout -b feature/your-feature-name`.
+3. Make your changes and commit them with descriptive commit messages.
+4. Push your changes to your forked repository.
+5. Submit a pull request detailing the changes you made and explaining their purpose.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I will review your pull request and merge it into the main branch if it aligns with the project's goals.
