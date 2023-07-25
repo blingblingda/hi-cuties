@@ -15,7 +15,9 @@ export default function HomePage() {
   const [breedOptions, setBreedOptions] = useState([]);
 
   useEffect(() => {
-    fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&breed=${breed}`)
+    fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&breed=${breed}`, {
+      mode: "cors",
+    })
       .then((res) => res.json())
       .then((res) => setPets(res.pets))
       .catch((error) => console.log(error));
@@ -24,7 +26,9 @@ export default function HomePage() {
 
   useEffect(() => {
     if (animal) {
-      fetch(`https://pets-v2.dev-apis.com/breeds?animal=${animal}`)
+      fetch(`https://pets-v2.dev-apis.com/breeds?animal=${animal}`, {
+        mode: "cors",
+      })
         .then((res) => res.json())
         .then((res) => setBreedOptions(res.breeds))
         .catch((error) => console.log(error));
@@ -35,7 +39,9 @@ export default function HomePage() {
   }, [animal]);
 
   const handleSubmit = () => {
-    fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&breed=${breed}`)
+    fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&breed=${breed}`, {
+      mode: "cors",
+    })
       .then((res) => res.json())
       .then((res) => setPets(res.pets))
       .catch((error) => console.log(error));

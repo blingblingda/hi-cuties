@@ -10,7 +10,9 @@ export default function Detail() {
   let params = useParams();
 
   useEffect(() => {
-    fetch(`https://pets-v2.dev-apis.com/pets?id=${params.pet_id}`)
+    fetch(`https://pets-v2.dev-apis.com/pets?id=${params.pet_id}`, {
+      mode: "cors",
+    })
       .then((res) => res.json())
       .then((res) => setPet(res.pets[0]))
       .catch((error) => console.log(error));
