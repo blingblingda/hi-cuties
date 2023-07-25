@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../HomePage/HomePage";
 import Detail from "../DetailPage";
 import FavoritesPage from "../FavoritesPage";
@@ -16,7 +16,7 @@ export default function App() {
   const [favorites, setFavorites] = React.useState([]);
   return (
     <FavoritesContext.Provider value={{ favorites, setFavorites }}>
-      <BrowserRouter>
+      <HashRouter>
         <Navbar bg="light" variant="light">
           <Container>
             <Navbar.Brand>
@@ -33,7 +33,7 @@ export default function App() {
           <Route path="/detail/:pet_id" element={<Detail />} />
           <Route path="/favorite" element={<FavoritesPage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </FavoritesContext.Provider>
   );
 }
