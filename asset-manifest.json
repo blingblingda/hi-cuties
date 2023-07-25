@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/hi-cuties/static/css/main.dc834902.css",
-    "main.js": "/hi-cuties/static/js/main.9d3cea4c.js",
-    "index.html": "/hi-cuties/index.html",
-    "main.dc834902.css.map": "/hi-cuties/static/css/main.dc834902.css.map",
-    "main.9d3cea4c.js.map": "/hi-cuties/static/js/main.9d3cea4c.js.map"
+    "main.css": "https://blingblingda.github.io/hi-cuties/static/css/main.dc834902.css",
+    "main.js": "https://blingblingda.github.io/hi-cuties/static/js/main.9d3cea4c.js",
+    "index.html": "https://blingblingda.github.io/hi-cuties/index.html",
+    "main.dc834902.css.map": "https://blingblingda.github.io/hi-cuties/static/css/main.dc834902.css.map",
+    "main.9d3cea4c.js.map": "https://blingblingda.github.io/hi-cuties/static/js/main.9d3cea4c.js.map"
   },
   "entrypoints": [
     "static/css/main.dc834902.css",
